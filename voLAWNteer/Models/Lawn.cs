@@ -21,7 +21,10 @@ namespace voLAWNteer.Models
         [Required]
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
-        
+
+        [Required]
+        public string Phone {get; set; }
+
         [Required]
         public string City { get; set; }
         

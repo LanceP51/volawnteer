@@ -63,7 +63,7 @@ namespace voLAWNteer
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Lawns}/{action=Create}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

@@ -29,6 +29,11 @@
                 <span asp-validation-for="StreetAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
@@ -52,6 +57,24 @@
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"></label>
+                <select asp-for="Approved" class="form-control" >
+                    @Html.DropDownListFor(m => m, new SelectList(
+new[]
+{
+new { Value = "", Text = "(none)" },
+new { Value = "true", Text = "Yes" },
+new { Value = "false", Text = "No" },
+},
+"Value",
+"Text",
+Model
+))
+                            </select>
+                
+                <span asp-validation-for="Approved" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Photo" class="control-label"></label>

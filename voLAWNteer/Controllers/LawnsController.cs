@@ -54,9 +54,9 @@ namespace voLAWNteer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,StreetAddress,City,State,ZipCode,Size,Description,Approved,Photo")] Lawn lawn)
+        public async Task<IActionResult> Create(Lawn lawn)
         {
-            ModelState.Remove("lawn.approved");
+            //ModelState.Remove("lawn.Approved");
             if (ModelState.IsValid)
             {
                 _context.Add(lawn);

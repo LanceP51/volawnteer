@@ -22,7 +22,9 @@ namespace voLAWNteer.Controllers
         // GET: Lawns
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Lawn.ToListAsync());
+            var applicationDbContext = _context.Lawn.Where(i => i.Approved != null);
+            return View(await applicationDbContext.ToListAsync());
+            
         }
 
         // GET: Lawns/Details/5

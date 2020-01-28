@@ -45,27 +45,6 @@ namespace voLAWNteer.Controllers
             return View(lawn);
         }
 
-        // GET: Pendings/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Pendings/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,StreetAddress,City,State,ZipCode,Size,Description,Approved,Photo")] Lawn lawn)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(lawn);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(lawn);
-        }
 
         // GET: Pendings/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -118,35 +97,9 @@ namespace voLAWNteer.Controllers
             return View(lawn);
         }
 
-        // GET: Pendings/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var lawn = await _context.Lawn
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (lawn == null)
-            {
-                return NotFound();
-            }
-
-            return View(lawn);
-        }
-
-        // POST: Pendings/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var lawn = await _context.Lawn.FindAsync(id);
-            _context.Lawn.Remove(lawn);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
+        // lawn exist?
+        
         private bool LawnExists(int id)
         {
             return _context.Lawn.Any(e => e.Id == id);

@@ -22,7 +22,12 @@ namespace voLAWNteer.Controllers
         // GET: Lawns
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Lawn.Where(i => i.Approved != null);
+            //only show in this view items that have been approved
+            var applicationDbContext = _context.Lawn.Where(i => i.Approved != null)
+                //connect Service table to these items and display dates in view
+                .Include(s => s.Services)
+                //order lists ascending
+                .OrderBy(s => s.Id);
             return View(await applicationDbContext.ToListAsync());
             
         }
@@ -89,7 +94,7 @@ namespace voLAWNteer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,StreetAddress,City,State,ZipCode,Size,Description,Photo")] Lawn lawn)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Photo, StreetAddress,City,State,ZipCode,Size,Description,Photo")] Lawn lawn)
         {
             if (id != lawn.Id)
             {

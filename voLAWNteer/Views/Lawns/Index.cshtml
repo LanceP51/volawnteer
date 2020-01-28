@@ -22,13 +22,22 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
+                Last Mowed
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
-            <th></th>
+            @*<th>voLAWNteer</th>*@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    foreach (var service in item.Services)
+    {
+        if (service.CompletedDate == null)
+        {
+            {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -40,15 +49,27 @@
                 @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Description) <a asp-action="Details" asp-route-id="@item.Id">Details</a>
             </td>
             <td>
-                <img src= "@Html.DisplayFor(modelItem => item.Photo)" alt = "yard image" height="142" width="200" />
+                @foreach (Service date in item.Services)
+                {
+                    //get the last one
+                    if(item.Services.IndexOf(date) == item.Services.Count-1)
+                    
+                    @Html.DisplayFor(d => date.ListingCreated)
+                }
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
             </td>
+            @*<td>
+                <input type="checkbox" aria-label="Completed">
+            </td>*@
         </tr>
+            }
+        }
+    }
 }
     </tbody>
 </table>

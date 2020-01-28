@@ -62,8 +62,8 @@
                 <label asp-for="Approved" class="control-label"></label>
                 <select asp-for="Approved" class="form-control">
                     <option value="">Select</option>
-                    <option value=1>Approved</option>
-                    <option value=0>Denied</option>
+                    <option value=true>Approved</option>
+                    <option value=false>Denied</option>
                 </select>
                 <span asp-validation-for="Approved" class="text-danger"></span>
             </div>

@@ -105,22 +105,22 @@ namespace voLAWNteer.Data
                 new Service()
                 {
                     Id = 1,
-                    CompletedDate = DateTime.Now,
-                    ListingCreated = DateTime.Today,
+                    CompletedDate = new DateTime (2020,01,21),
+                    ListingCreated = new DateTime(2020, 01, 01),
                     LawnId = 1
                 },
                 new Service()
                 {
                     Id = 2,
                     CompletedDate = null,
-                    ListingCreated = DateTime.Today,
+                    ListingCreated = new DateTime(2020, 01, 12),
                     LawnId = 2
                 },
                 new Service()
                 {
                     Id = 3,
                     CompletedDate = null,
-                    ListingCreated = DateTime.Today,
+                    ListingCreated = new DateTime(2020, 01, 06),
                     LawnId = 1
                 }
             );

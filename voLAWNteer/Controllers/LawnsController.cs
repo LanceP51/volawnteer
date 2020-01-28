@@ -94,17 +94,19 @@ namespace voLAWNteer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, FirstName,LastName, StreetAddress,City,State,ZipCode,Size,Description,Photo")] Lawn lawn)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, FirstName,LastName, Phone, StreetAddress,City,State,ZipCode,Size,Description,Photo")] Lawn lawn)
         {
             if (id != lawn.Id)
             {
                 return NotFound();
             }
-
+           
             if (ModelState.IsValid)
             {
                 try
                 {
+                    //keep approved status on this lawn
+                    lawn.Approved = true;
                     _context.Update(lawn);
                     await _context.SaveChangesAsync();
                 }

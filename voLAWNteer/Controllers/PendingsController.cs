@@ -92,14 +92,15 @@ namespace voLAWNteer.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (lawn.Approved == true)
+                { return RedirectToAction("Create", "Services", new { id = lawn.Id }); }
+                else { return RedirectToAction(nameof(Index)); }
             }
             return View(lawn);
         }
 
 
         // lawn exist?
-        
         private bool LawnExists(int id)
         {
             return _context.Lawn.Any(e => e.Id == id);

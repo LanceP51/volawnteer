@@ -23,7 +23,7 @@ namespace voLAWNteer.Controllers
         public async Task<IActionResult> Index()
         {
             //only show in this view items that have been approved
-            var applicationDbContext = _context.Lawn.Where(i => i.Approved != null)
+            var applicationDbContext = _context.Lawn.Where(i => i.Approved == true)
                 //connect Service table to these items and display dates in view
                 .Include(s => s.Services)
                 //order lists ascending

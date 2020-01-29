@@ -1,0 +1,26 @@
+﻿@model voLAWNteer.Models.Service
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Finalize</h1>
+
+<h4>Service</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p>This lawn is almost Approved and will then be sent directly to the Lawns Queue. <br />
+            Click Approve to finalize.</p>
+            <div class="form-group">
+                <input type="submit" value="Finalize" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

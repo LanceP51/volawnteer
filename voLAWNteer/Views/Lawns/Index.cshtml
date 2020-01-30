@@ -3,13 +3,18 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+    
 <h1>Queue</h1>
+
+    <div id="advertisements">
+        <img class="ads" src="~/lawnAd1.jpg"/>
+        <img class="ads" src="~/lawnAd2.jpg"/>
+    </div>
 
 <table class="table">
     <thead>
         <tr>
-            @*<th>voLAWNteer</th>*@
+            <th>voLAWNteer</th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -39,9 +44,10 @@
         {
             {
         <tr>
-            @*<td>
-                <input type="checkbox" aria-label="Completed">
-            </td>*@
+            <td>
+                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@item.Id"><button class="btn btn-secondary">I'll mow it</button></a>
+                
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>

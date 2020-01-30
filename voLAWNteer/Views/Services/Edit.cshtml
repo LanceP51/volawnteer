@@ -4,39 +4,29 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>voLAWNteer</h1>
 
-<h4>Service</h4>
+<h4>Service Date</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
+            <p>Click to voLAWNteer for this Lawn, and you'll be redirected to approve a new listing for the next time this yard needs mowed.</p>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ListingCreated" />
+            <input type="hidden" asp-for="CompletedDate" />
+            <input type="hidden" asp-for="LawnId" />
             <div class="form-group">
-                <label asp-for="CompletedDate" class="control-label"></label>
-                <input asp-for="CompletedDate" class="form-control" />
-                <span asp-validation-for="CompletedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ListingCreated" class="control-label"></label>
-                <input asp-for="ListingCreated" class="form-control" />
-                <span asp-validation-for="ListingCreated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LawnId" class="control-label"></label>
-                <select asp-for="LawnId" class="form-control" asp-items="ViewBag.LawnId"></select>
-                <span asp-validation-for="LawnId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Click to commit to mow" class="btn btn-secondary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Lawns" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

@@ -66,7 +66,7 @@ namespace voLAWNteer.Controllers
             {
                 return NotFound();
             }
-            ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City", service.LawnId);
+            //ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", null, service.LawnId);
             return View(service);
         }
 
@@ -75,7 +75,7 @@ namespace voLAWNteer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CompletedDate,ListingCreated,LawnId")] Service service)
+        public async Task<IActionResult> Edit(int id, Service service)
         {
             if (id != service.Id)
             {
@@ -86,6 +86,7 @@ namespace voLAWNteer.Controllers
             {
                 try
                 {
+                    service.CompletedDate = DateTime.Now;
                     _context.Update(service);
                     await _context.SaveChangesAsync();
                 }
@@ -100,9 +101,10 @@ namespace voLAWNteer.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Create), service.LawnId);
+                return RedirectToAction("Create", "Services", new { id = service.LawnId });
             }
-            ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City", service.LawnId);
+            //ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City", service.LawnId);
             return View(service);
         }
 

@@ -62,10 +62,32 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+body {
+    /*background img for home page*/
+    background-image: url('../lawn1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}    
+/*advertisements*/
+#advertisements{
+    display: flex;
+    justify-content: space-between;
+    padding:1%;
+    background-color:white;
+}
+.ads {
+    background-repeat: no-repeat;
+    width: 40%;
+    clip: rect(0px,900px,200px,0px);
+    height: 10%;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  background-color: white;
 }

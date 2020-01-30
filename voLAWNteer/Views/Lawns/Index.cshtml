@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            @*<th>voLAWNteer</th>*@
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -27,7 +28,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
-            @*<th>voLAWNteer</th>*@
         </tr>
     </thead>
     <tbody>
@@ -39,6 +39,9 @@
         {
             {
         <tr>
+            @*<td>
+                <input type="checkbox" aria-label="Completed">
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
@@ -55,17 +58,14 @@
                 @foreach (Service date in item.Services)
                 {
                     //get the last one
-                    if(item.Services.IndexOf(date) == item.Services.Count-1)
-                    
-                    @Html.DisplayFor(d => date.ListingCreated)
-                }
+                    if (item.Services.IndexOf(date) == item.Services.Count - 1)
+
+                        @Html.DisplayFor(d => date.ListingCreated)
+                    }
             </td>
             <td>
                 <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
             </td>
-            @*<td>
-                <input type="checkbox" aria-label="Completed">
-            </td>*@
         </tr>
             }
         }

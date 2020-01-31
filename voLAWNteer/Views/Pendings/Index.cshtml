@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+    <br />
 <h1>Pending Approval</h1>
 
 <table class="table">
@@ -46,13 +46,10 @@
                 @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Description) <a asp-action="Details" asp-route-id="@item.Id">View Details to Approve</a>
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <img class ="homeImg" src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
             </td>
         </tr>
 }

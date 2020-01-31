@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +15,18 @@ namespace voLAWNteer.Controllers
     public class PendingsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PendingsController(ApplicationDbContext context)
+        public PendingsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
 
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
         // GET: Pendings
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Lawn.Where(i => i.Approved == null);
@@ -28,6 +35,7 @@ namespace voLAWNteer.Controllers
         }
 
         // GET: Pendings/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

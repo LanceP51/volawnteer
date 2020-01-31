@@ -1,15 +1,18 @@
-﻿@model IEnumerable<voLAWNteer.Models.Lawn>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model IEnumerable<voLAWNteer.Models.Lawn>
 
 @{
     ViewData["Title"] = "Index";
 }
-    
-<h1>Queue</h1>
-
-    <div id="advertisements">
-        <img class="ads" src="~/lawnAd1.jpg"/>
-        <img class="ads" src="~/lawnAd2.jpg"/>
-    </div>
+    <br />
+<div id="advertisements">
+    <img class="ads" src="~/lawnAd1.jpg" />
+    <img class="ads" src="~/lawnAd2.jpg" />
+</div>
 
 <table class="table">
     <thead>
@@ -36,46 +39,49 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model)
-{
-    foreach (var service in item.Services)
-    {
-        if (service.CompletedDate == null)
+        @foreach (var item in Model)
         {
+            foreach (var service in item.Services)
             {
-        <tr>
-            <td>
-                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@service.Id"><button class="btn btn-secondary">I'll mow it</button></a>
-                
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreetAddress) @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description) <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-            </td>
-            <td>
-                @foreach (Service date in item.Services)
+                if (service.CompletedDate == null)
                 {
-                    //get the last one
-                    if (item.Services.IndexOf(date) == item.Services.Count - 1)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@service.Id"><button class="btn btn-secondary">I'll mow it</button></a>
 
-                        @Html.DisplayFor(d => date.ListingCreated)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StreetAddress) @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.ZipCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                                @if (SignInManager.IsSignedIn(User)) { 
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                   }
+                            </td>
+                            <td>
+                                @foreach (Service date in item.Services)
+                                {
+                                    //get the last one
+                                    if (item.Services.IndexOf(date) == item.Services.Count - 1)
+
+                                        @Html.DisplayFor(d => date.ListingCreated)
+                                    }
+                            </td>
+                            <td>
+                                <img class ="homeImg" src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
+                            </td>
+                        </tr>
                     }
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
-            </td>
-        </tr>
+                }
             }
         }
-    }
-}
     </tbody>
 </table>

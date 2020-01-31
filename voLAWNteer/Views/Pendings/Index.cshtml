@@ -41,6 +41,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StreetAddress)  @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.ZipCode)
+                <a target="_blank" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={item.StreetAddress}+{item.City}+{item.State}")">Directions</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Size)

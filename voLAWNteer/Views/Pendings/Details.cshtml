@@ -33,6 +33,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.StreetAddress)
+            <a target="_blank" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={Model.StreetAddress}+{Model.City}+{Model.State}")">Directions</a>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.City)

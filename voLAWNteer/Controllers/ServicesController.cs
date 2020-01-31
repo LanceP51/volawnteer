@@ -29,7 +29,6 @@ namespace voLAWNteer.Controllers
         // GET: Services/Create
         public IActionResult Create()
         {
-            ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City");
             return View();
         }
 
@@ -47,9 +46,9 @@ namespace voLAWNteer.Controllers
                 service.ListingCreated = DateTime.Now;
                 _context.Add(service);
                 await _context.SaveChangesAsync();
+                //if authorized, return to pending, if not authorized, return to queue*******
                 return RedirectToAction("Index","Pendings");
             }
-            ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City", service.LawnId);
             return View(service);
         }
 
@@ -66,7 +65,6 @@ namespace voLAWNteer.Controllers
             {
                 return NotFound();
             }
-            //ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", null, service.LawnId);
             return View(service);
         }
 
@@ -101,10 +99,8 @@ namespace voLAWNteer.Controllers
                         throw;
                     }
                 }
-                //return RedirectToAction(nameof(Create), service.LawnId);
                 return RedirectToAction("Create", "Services", new { id = service.LawnId });
             }
-            //ViewData["LawnId"] = new SelectList(_context.Lawn, "Id", "City", service.LawnId);
             return View(service);
         }
 

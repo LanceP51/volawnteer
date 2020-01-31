@@ -24,10 +24,11 @@ namespace voLAWNteer.Controllers
         {
             //only show in this view items that have been approved
             var applicationDbContext = _context.Lawn.Where(i => i.Approved == true)
+
                 //connect Service table to these items and display dates in view
                 .Include(s => s.Services)
-                //order lists ascending
-                .OrderBy(s => s.Id);
+                //order lists ascending (by date created and completedDate is null)
+                .OrderBy(s => s.Services.FirstOrDefault(n => n.CompletedDate==null).ListingCreated);
             return View(await applicationDbContext.ToListAsync());
             
         }

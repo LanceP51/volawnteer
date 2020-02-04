@@ -8,7 +8,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <br />
+<br />
 <div id="advertisements">
     <img class="ads" src="~/lawnAd1.jpg" />
     <img class="ads" src="~/lawnAd2.jpg" />
@@ -48,7 +48,7 @@
                     {
                         <tr>
                             <td>
-                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@service.Id"><button class="btn btn-secondary">I'll mow it</button></a>
+                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@service.Id"><button class="btn btn-secondary">Select</button></a>
 
                             </td>
                             <td>
@@ -57,7 +57,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.StreetAddress) @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.ZipCode)
 
-                                <a target="_blank" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={item.StreetAddress}+{item.City}+{item.State}")">Directions</a>
+                                <a target="_blank" class="badge badge-info" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={item.StreetAddress}+{item.City}+{item.State}")">Directions</a>
 
                             </td>
                             <td>
@@ -65,9 +65,10 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
-                                @if (SignInManager.IsSignedIn(User)) { 
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                                   }
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="badge badge-light">Details</a>
+                                }
                             </td>
                             <td>
                                 @foreach (Service date in item.Services)
@@ -79,7 +80,7 @@
                                     }
                             </td>
                             <td>
-                                <img class ="homeImg" src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
+                                <img class="homeImg" src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
                             </td>
                         </tr>
                     }

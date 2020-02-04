@@ -10,10 +10,14 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <div class="progress">
+            <div class="progress-bar-animated progress-bar-striped bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <p>This lawn listing is almost ready to add to the Lawns Queue. <br />
-            Please Continue.</p>
+            <p>
+                This lawn listing is ready to be added to the Queue.
+            </p>
             <div class="form-group">
                 <input type="submit" value="Continue" class="btn btn-secondary" />
             </div>

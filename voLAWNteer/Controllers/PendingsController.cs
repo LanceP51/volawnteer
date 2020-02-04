@@ -35,7 +35,6 @@ namespace voLAWNteer.Controllers
         }
 
         // GET: Pendings/Details/5
-        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

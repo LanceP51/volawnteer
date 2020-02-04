@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +15,15 @@ namespace voLAWNteer.Controllers
     public class ServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ServicesController(ApplicationDbContext context)
+        public ServicesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Services
         public async Task<IActionResult> Index()
@@ -39,6 +45,8 @@ namespace voLAWNteer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Service service, [FromRoute] int id )
         {
+            var user = await GetCurrentUserAsync();
+
             if (ModelState.IsValid)
             {
                 service.LawnId = id;
@@ -47,7 +55,14 @@ namespace voLAWNteer.Controllers
                 _context.Add(service);
                 await _context.SaveChangesAsync();
                 //if authorized, return to pending, if not authorized, return to queue*******
-                return RedirectToAction("Index","Pendings");
+                if (user != null)
+                {
+                    return RedirectToAction("Index", "Pendings");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Lawns");
+                }
             }
             return View(service);
         }

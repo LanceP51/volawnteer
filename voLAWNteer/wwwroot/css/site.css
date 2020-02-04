@@ -63,8 +63,8 @@ body {
     margin-bottom: 60px;
     background-image: url('../lawn3.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-attachment: scroll;
+    background-size: contain;
     background-position: top;
 }   
 /*yard images*/

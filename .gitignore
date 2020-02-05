@@ -14,7 +14,7 @@
 *.userprefs
 
 # ignore SMS class
-!/voLAWNteer/Models/SMSInformation.cs
+SMSInformation.cs
 
 # Build results
 [Dd]ebug/

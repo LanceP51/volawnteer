@@ -59,7 +59,7 @@ html {
 }
 
 body {
-    /* Margin bottom by footer height */
+    /* Margin bottom by footer height and background image*/
     margin-bottom: 60px;
     background-image: url('../lawn3.jpg');
     background-repeat: no-repeat;
@@ -75,7 +75,7 @@ body {
     border-width: 2px;
     box-shadow: 2px 2px 4px #ffffff;
 }
-/*advertisements*/
+/*advertisements container*/
 #advertisements{
     display: flex;
     justify-content: space-evenly;
@@ -83,6 +83,7 @@ body {
     padding:1%;
     background-color:white;
 }
+/*advertisements*/
 .ads {
     width: 40vw;
 }

@@ -108,18 +108,20 @@ namespace voLAWNteer.Controllers
 
                     //text message for this method
                     ////////
-                    string accountSid = "AC9df98f48a9212c6c84dd0bc0cf5accad";
-                    string authToken = "ef5159e5cd427a78d190cf6a18335518";
+                    SMSInformation twilio = new SMSInformation();
+
+                    string accountSid = twilio.accountSID;
+                    string authToken = twilio.accountToken;
 
                     TwilioClient.Init(accountSid, authToken);
 
                     var message = MessageResource.Create(
                         body: $"Your lawn has a voLAWNteer, and they will be coming soon to mow your lawn!",
-                        from: new Twilio.Types.PhoneNumber("+12073877567"),
-                        to: new Twilio.Types.PhoneNumber("+13045614944"));
+                        from: new Twilio.Types.PhoneNumber(twilio.twilioPhone),
+                        to: new Twilio.Types.PhoneNumber(twilio.customerPhone));
                     /////////
 
-
+                    
 
 
                 }

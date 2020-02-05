@@ -22,9 +22,11 @@ namespace voLAWNteer.Controllers
         public ServicesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            //inject the UserManager service
             _userManager = userManager;
         }
 
+        //method that needs to see who the user is
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Services
@@ -51,8 +53,11 @@ namespace voLAWNteer.Controllers
 
             if (ModelState.IsValid)
             {
+                //create new service entry for the given LawnId FK
                 service.LawnId = id;
+                //tell entity that the PK is 0
                 service.Id = 0;
+                //give the entry created time
                 service.ListingCreated = DateTime.Now;
                 _context.Add(service);
                 await _context.SaveChangesAsync();
@@ -101,11 +106,12 @@ namespace voLAWNteer.Controllers
             {
                 try
                 {
+                    //give a completed date
                     service.CompletedDate = DateTime.Now;
                     _context.Update(service);
                     await _context.SaveChangesAsync();
 
-                    /*
+                    
                     //text message for this method
                     ////////
                     SMSInformation twilio = new SMSInformation();
@@ -120,7 +126,7 @@ namespace voLAWNteer.Controllers
                         from: new Twilio.Types.PhoneNumber(twilio.twilioPhone),
                         to: new Twilio.Types.PhoneNumber(twilio.customerPhone));
                     /////////
-                    */
+                    
                     
 
 
@@ -136,6 +142,7 @@ namespace voLAWNteer.Controllers
                         throw;
                     }
                 }
+                //send user to create new service listing and send the FK with it
                 return RedirectToAction("Create", "Services", new { id = service.LawnId });
             }
             return View(service);

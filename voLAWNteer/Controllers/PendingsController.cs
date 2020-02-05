@@ -21,16 +21,19 @@ namespace voLAWNteer.Controllers
 
         public PendingsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
+            //inject the UserManager service
             _userManager = userManager;
             _context = context;
         }
 
+        //method that needs to see who the user is
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Pendings
         [Authorize]
         public async Task<IActionResult> Index()
         {
+            //get new lawn requests where approved bool is still null
             var applicationDbContext = _context.Lawn.Where(i => i.Approved == null);
             return View(await applicationDbContext.ToListAsync());
 
@@ -101,10 +104,11 @@ namespace voLAWNteer.Controllers
                         throw;
                     }
                 }
+                //if lawn is approved, then send a text and send user to create the first service entry, otherwise store it as denied and do nothing with it
                 if (lawn.Approved == true)
                 {
 
-                    /*
+                    
                     //text message for this method
                     ////////
                     SMSInformation twilio = new SMSInformation();
@@ -119,7 +123,7 @@ namespace voLAWNteer.Controllers
                         from: new Twilio.Types.PhoneNumber(twilio.twilioPhone),
                         to: new Twilio.Types.PhoneNumber(twilio.customerPhone));
                     /////////
-                    */
+                    
 
 
 

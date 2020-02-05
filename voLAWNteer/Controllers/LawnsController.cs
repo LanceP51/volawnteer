@@ -73,7 +73,7 @@ namespace voLAWNteer.Controllers
                 await _context.SaveChangesAsync();
 
 
-                /*
+                
                 //text message for this method
                 ////////
                 SMSInformation twilio = new SMSInformation();
@@ -88,7 +88,7 @@ namespace voLAWNteer.Controllers
                     from: new Twilio.Types.PhoneNumber(twilio.twilioPhone),
                     to: new Twilio.Types.PhoneNumber(twilio.customerPhone));
                 /////////
-                    */
+                    
 
 
 
@@ -169,6 +169,7 @@ namespace voLAWNteer.Controllers
         }
 
         // POST: Lawns/Delete/5
+        // will only delete from lawn table, not service table
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

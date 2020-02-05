@@ -13,6 +13,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# ignore a SMS class
+SMSInformation.cs
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

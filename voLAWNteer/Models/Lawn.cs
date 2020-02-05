@@ -21,7 +21,10 @@ namespace voLAWNteer.Models
         [Required]
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
-        
+
+        [Required]
+        public string Phone {get; set; }
+
         [Required]
         public string City { get; set; }
         
@@ -38,8 +41,7 @@ namespace voLAWNteer.Models
         [Required]
         public string Description { get; set; }
         
-        [Required]
-        public bool Approved { get; set; }
+        public bool? Approved { get; set; }
         
         [Required]
         public string Photo { get; set; }

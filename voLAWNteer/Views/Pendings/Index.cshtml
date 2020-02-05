@@ -1,0 +1,58 @@
+﻿@model IEnumerable<voLAWNteer.Models.Lawn>
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <br />
+<h1>Pending Approval <span class="badge badge-light">@Model.Count() items</span></h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetAddress)  @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.ZipCode)
+                <a target="_blank" class="badge badge-info" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={item.StreetAddress}+{item.City}+{item.State}")">Directions</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description) <a asp-action="Details" asp-route-id="@item.Id" class="badge badge-light">View Details to Approve</a>
+            </td>
+            <td>
+                <img class ="homeImg" src="@Html.DisplayFor(modelItem => item.Photo)" alt="yard image" height="142" width="200" />
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using voLAWNteer.Data;
 
 namespace voLAWNteer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200128152322_changedServiceDates")]
+    partial class changedServiceDates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,7 +249,7 @@ namespace voLAWNteer.Migrations
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
                             City = "Huntington",
-                            ConcurrencyStamp = "a74a0068-e76f-4144-91a7-2ba3a1a49bdb",
+                            ConcurrencyStamp = "1c6d241a-630d-43ae-b844-fcdfb6e8ae67",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -255,7 +257,7 @@ namespace voLAWNteer.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENT5dQbJkt3ny5SezsRI93yJiTk4RiVMJBa8jnWa3fwpGXP42AYv/H1VDrwP7oRMsQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENqwTKJ/bQo2XsYxXfZVQYF/j5JwS6BdQfTb8RuIxNVfP1Y34oC+RXZL1BmnS1bTJQ==",
                             Phone = "1-304-555-8987",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",

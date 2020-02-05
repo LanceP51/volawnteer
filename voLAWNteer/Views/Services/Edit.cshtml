@@ -1,0 +1,39 @@
+﻿@model voLAWNteer.Models.Service
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>voLAWNteer</h1>
+
+<h4>Service Date</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="progress">
+            <div class="progress-bar-animated progress-bar-striped bg-success" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <br />
+        <form asp-action="Edit">
+            <h4 class="continueBtns">Click to voLAWNteer for this Lawn, and you'll be redirected to approve a new listing for the next time this yard needs mowed.</h4>
+            <br />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ListingCreated" />
+            <input type="hidden" asp-for="CompletedDate" />
+            <input type="hidden" asp-for="LawnId" />
+            <div class="form-group">
+                <input type="submit" value="Click to commit to mow" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Lawns" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

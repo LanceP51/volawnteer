@@ -8,7 +8,7 @@ using voLAWNteer.Models;
 
 namespace voLAWNteer.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -60,6 +60,7 @@ namespace voLAWNteer.Data
                     Id = 1,
                     FirstName = "John",
                     LastName = "Smith",
+                    Phone = "1-304-949-6521",
                     StreetAddress = "409 Lower Terrace",
                     City =  "Huntington",
                     State = "WV",
@@ -74,6 +75,7 @@ namespace voLAWNteer.Data
                     Id = 2,
                     FirstName = "Sue",
                     LastName = "Stevens",
+                    Phone = "1-304-555-7846",
                     StreetAddress = "414 Lower Terrace",
                     City = "Huntington",
                     State = "WV",
@@ -88,6 +90,7 @@ namespace voLAWNteer.Data
                     Id = 3,
                     FirstName = "Raven",
                     LastName = "Baxter",
+                    Phone = "1-304-342-5487",
                     StreetAddress = "203 Crestview Drive",
                     City = "Charleston",
                     State = "WV",
@@ -102,22 +105,22 @@ namespace voLAWNteer.Data
                 new Service()
                 {
                     Id = 1,
-                    CompletedDate = DateTime.Now,
-                    ListingCreated = DateTime.Today,
+                    CompletedDate = new DateTime (2020,01,21),
+                    ListingCreated = new DateTime(2020, 01, 01),
                     LawnId = 1
                 },
                 new Service()
                 {
                     Id = 2,
                     CompletedDate = null,
-                    ListingCreated = DateTime.Today,
+                    ListingCreated = new DateTime(2020, 01, 12),
                     LawnId = 2
                 },
                 new Service()
                 {
                     Id = 3,
                     CompletedDate = null,
-                    ListingCreated = DateTime.Today,
+                    ListingCreated = new DateTime(2020, 01, 06),
                     LawnId = 1
                 }
             );

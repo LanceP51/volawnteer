@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using voLAWNteer.Data;
 
 namespace voLAWNteer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200127144637_addedAppUserToDbContext")]
+    partial class addedAppUserToDbContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,7 +249,7 @@ namespace voLAWNteer.Migrations
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
                             City = "Huntington",
-                            ConcurrencyStamp = "a74a0068-e76f-4144-91a7-2ba3a1a49bdb",
+                            ConcurrencyStamp = "7e2f029d-ebc1-484b-8e6d-8b6b3aa4d815",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -255,7 +257,7 @@ namespace voLAWNteer.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENT5dQbJkt3ny5SezsRI93yJiTk4RiVMJBa8jnWa3fwpGXP42AYv/H1VDrwP7oRMsQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMHMZ2XQ7YUccbeCjQ5E695po2LsLSWcVH5j11pzHSityWivnaEV9BDNAM0B8FXqdw==",
                             Phone = "1-304-555-8987",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
@@ -393,21 +395,21 @@ namespace voLAWNteer.Migrations
                         new
                         {
                             Id = 1,
-                            CompletedDate = new DateTime(2020, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CompletedDate = new DateTime(2020, 1, 27, 9, 46, 36, 586, DateTimeKind.Local).AddTicks(4015),
                             LawnId = 1,
-                            ListingCreated = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ListingCreated = new DateTime(2020, 1, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 2,
                             LawnId = 2,
-                            ListingCreated = new DateTime(2020, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ListingCreated = new DateTime(2020, 1, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             Id = 3,
                             LawnId = 1,
-                            ListingCreated = new DateTime(2020, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ListingCreated = new DateTime(2020, 1, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

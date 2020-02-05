@@ -16,7 +16,8 @@
         </div>
         <br />
         <form asp-action="Edit">
-            <h4>Click to voLAWNteer for this Lawn, and you'll be redirected to approve a new listing for the next time this yard needs mowed.</h4>
+            <h4 class="continueBtns">Click to voLAWNteer for this Lawn, and you'll be redirected to approve a new listing for the next time this yard needs mowed.</h4>
+            <br />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="ListingCreated" />

@@ -108,7 +108,7 @@ namespace voLAWNteer.Controllers
                 if (lawn.Approved == true)
                 {
 
-                    
+                    /*
                     //text message for this method
                     ////////
                     SMSInformation twilio = new SMSInformation();
@@ -123,7 +123,7 @@ namespace voLAWNteer.Controllers
                         from: new Twilio.Types.PhoneNumber(twilio.twilioPhone),
                         to: new Twilio.Types.PhoneNumber(twilio.customerPhone));
                     /////////
-                    
+                    */
 
 
 

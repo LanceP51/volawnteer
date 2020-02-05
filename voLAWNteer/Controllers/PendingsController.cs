@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using voLAWNteer.Data;
 using voLAWNteer.Models;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace voLAWNteer.Controllers
 {
@@ -100,7 +102,26 @@ namespace voLAWNteer.Controllers
                     }
                 }
                 if (lawn.Approved == true)
-                { return RedirectToAction("Create", "Services", new { id = lawn.Id }); }
+                {
+
+
+                    //text message for this method
+                    ////////
+                    string accountSid = "AC9df98f48a9212c6c84dd0bc0cf5accad";
+                    string authToken = "ef5159e5cd427a78d190cf6a18335518";
+
+                    TwilioClient.Init(accountSid, authToken);
+
+                    var message = MessageResource.Create(
+                        body: $"Hi, {lawn.FirstName}, your lawn at {lawn.StreetAddress} has been Approved, and we will add it to our queue of lawns.",
+                        from: new Twilio.Types.PhoneNumber("+12073877567"),
+                        to: new Twilio.Types.PhoneNumber("+13045614944"));
+                    /////////
+
+
+
+
+                    return RedirectToAction("Create", "Services", new { id = lawn.Id }); }
                 else { return RedirectToAction(nameof(Index)); }
             }
             return View(lawn);

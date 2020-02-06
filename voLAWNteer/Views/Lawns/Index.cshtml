@@ -3,7 +3,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@model IEnumerable<voLAWNteer.Models.Lawn>
+@model voLAWNteer.Models.ViewModels.Statistics
 
 @{
     ViewData["Title"] = "Index";
@@ -13,33 +13,37 @@
     <img class="ads" src="~/lawnAd1.jpg" />
     <img class="ads" src="~/lawnAd2.jpg" />
 </div>
-
+<br />
+<h3>voLAWNteers are now assisting <span class="badge badge-light">@Model.ApprovedLawns.Count() homeowners</span> and have mowed <span class="badge badge-light">@Model.ServiceInstances lawns</span> to date!</h3>
 <table class="table">
     <thead>
+        @Html.DisplayNameFor(model => model.ApprovedLawns[0].FirstName)
+
         <tr>
             <th>voLAWNteer</th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.ApprovedLawns[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StreetAddress)
+                @Html.DisplayNameFor(model => model.ApprovedLawns[0].StreetAddress)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Size)
+                @Html.DisplayNameFor(model => model.ApprovedLawns[0].Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.ApprovedLawns[0].Description)
             </th>
             <th>
                 Last Mowed
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photo)
+                @Html.DisplayNameFor(model => model.ApprovedLawns[0].Photo)
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+
+        @foreach (var item in Model.ApprovedLawns)
         {
             foreach (var service in item.Services)
             {
@@ -87,5 +91,12 @@
                 }
             }
         }
+
     </tbody>
 </table>
+
+    <div class="container">
+        <h1 class="display-4">Approval Statistics</h1>
+        <p class="lead">We have been able to approve up to @Model.ApprovedLawns.Count() for voLAWNteer service, and we have only denied @Model.DeniedLawns.Count() requests, while we are still considering @Model.PendingLawns.Count() more requests.</p>
+    </div>
+<br /><br /><br /><br /><br /><br />

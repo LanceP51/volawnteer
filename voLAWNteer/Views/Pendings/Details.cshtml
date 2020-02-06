@@ -33,7 +33,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.StreetAddress)
-            <a target="_blank"  class="badge badge-info" href="@($"https://www.google.com/maps/dir/?api=1&origin=Ritter+Park+Huntington+WV&destination={Model.StreetAddress}+{Model.City}+{Model.State}")">Directions</a>
+            <a target="_blank"  class="badge badge-info" href="@($"https://www.google.com/maps/dir/?api=1&destination={Model.StreetAddress}+{Model.City}+{Model.State}")">Directions</a>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.City)
@@ -74,6 +74,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit and Approve</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id"><button class="btn btn-secondary">Edit and Approve</button></a>
+    <br /><br />
     <a asp-action="Index">Back to List</a>
 </div>

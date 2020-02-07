@@ -8,10 +8,10 @@ This app will support a data set of yards that need care, and volunteers may don
 * This project was created with C#/.NET using Entity Framework.
 
 * Using the built-in bootstrap library for many components
-    ![Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+    [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
 ---
 * Below is a diagram showing the data relationships and tables
-    ![Entity Relationship](https://drive.google.com/file/d/1PYrx-NUQ8_k09fQ-L3izKPFz0ZM-_e3F/view?usp=sharing)
+    [Entity Relationship](https://drive.google.com/file/d/1PYrx-NUQ8_k09fQ-L3izKPFz0ZM-_e3F/view?usp=sharing)
 
 ---
 ### Demo

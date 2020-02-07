@@ -2,15 +2,16 @@
 My app will allow volunteers to help with lawn maintenance where homeowners cannot manage it themselves.
 
 This app will support a data set of yards that need care, and volunteers may donate their time to help. Ads to market mower retailers or local mowing companies may support the cause financially. The yards will display on a rolling basis to keep the list of yards moving by dropping the most recently mowed yard to the bottom of the queue. Account logins will be reserved for admins and will allow features such as edit, delete, and approval. The site will have a request form to have a yard added to the group, which can be approved or denied by the admin. Listings will display pertinent criteria as well as a feature to mark a listing completed.
+
 ---
 ### Creation of app
 * This project was created with C#/.NET using Entity Framework.
 
 * Using the built-in bootstrap library for many components
-    [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+    ![Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
 ---
 * Below is a diagram showing the data relationships and tables
-![Entity Relationship](https://drive.google.com/file/d/1PYrx-NUQ8_k09fQ-L3izKPFz0ZM-_e3F/view?usp=sharing "voLAWNteer")
+    ![Entity Relationship](https://drive.google.com/file/d/1PYrx-NUQ8_k09fQ-L3izKPFz0ZM-_e3F/view?usp=sharing)
 
 ---
 ### Demo

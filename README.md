@@ -26,7 +26,7 @@ password: Admin8*
 1. Home page displays information about the application and the group. It also holds a form to submit a lawn for service and an "e-mail us" button which launches the native em-amil client and preloads an email. Once a lawn form is submitted, a personalized text alert confirmation will be sent (currently to a my number only due to Free Trial Software).
 &nbsp;
 
-![home](/home form.gif)
+![homeform](/homeform.gif)
 &nbsp;
 
 2. Queue page directs visitors to a queue of lawns and some volunteer statistics. Once a lawn is selected to be mowed, a text alert notification will be sent (currently to a my number only due to Free Trial Software)
@@ -40,10 +40,10 @@ password: Admin8*
 
 4. the Pending tab takes admins to a page where they can approve or deny, as well as edit, lawn requests. Once a lawn is approved, a personalized text alert will be sent (currently to a my number only due to Free Trial Software)
     
-![pending](/pending.gif)
+![pending](/pending.jpg)
 &nbsp;
 
-![texts](/texts.gif)
+![texts](/texts.jpg)
 &nbsp;
     
 ---

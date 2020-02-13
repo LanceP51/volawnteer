@@ -43,7 +43,7 @@ password: Admin8*
 ![pending](/pending.jpg)
 &nbsp;
 
-![texts](/texts.jpg)
+![texts](/texts.jpeg)
 &nbsp;
     
 ---
